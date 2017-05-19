@@ -7,11 +7,6 @@ public abstract class PaginationScrollListener extends RecyclerView.OnScrollList
 
     private GridLayoutManager layoutManager;
 
-    /**
-     * Supporting only LinearLayoutManager for now.
-     *
-     * @param layoutManager
-     */
     protected PaginationScrollListener(GridLayoutManager layoutManager) {
         this.layoutManager = layoutManager;
     }
@@ -34,8 +29,6 @@ public abstract class PaginationScrollListener extends RecyclerView.OnScrollList
     }
 
     protected abstract void loadMoreItems();
-
-    public abstract int getTotalPageCount();
 
     public abstract boolean isLastPage();
 

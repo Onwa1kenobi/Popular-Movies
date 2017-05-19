@@ -110,11 +110,6 @@ public class MoviesActivity extends AppCompatActivity implements MoviesContract.
             }
 
             @Override
-            public int getTotalPageCount() {
-                return 7;
-            }
-
-            @Override
             public boolean isLastPage() {
                 return isLastPage;
             }
