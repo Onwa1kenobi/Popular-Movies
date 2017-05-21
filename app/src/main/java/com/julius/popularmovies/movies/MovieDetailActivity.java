@@ -49,7 +49,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras().getBundle(Constants.MOVIE);
 
         assert extras != null;
-        Movie movie = extras.getParcelable(Constants.MOVIE);
+        final Movie movie = extras.getParcelable(Constants.MOVIE);
 
         if (movie == null) return;
 
