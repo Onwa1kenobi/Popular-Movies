@@ -11,14 +11,14 @@ import com.julius.popularmovies.R;
 /**
  * Created by ameh on 27/05/2017.
  */
-public class MovieSectionsPagerAdapter extends FragmentStatePagerAdapter {
+class MovieSectionsPagerAdapter extends FragmentStatePagerAdapter {
 
     private Context mContext;
 
     private MoviesFragment moviesFragment;
     private FavouriteMoviesFragment favouriteMoviesFragment;
 
-    public MovieSectionsPagerAdapter(Context context, FragmentManager fm) {
+    MovieSectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
 

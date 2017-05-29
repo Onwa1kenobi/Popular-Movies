@@ -52,7 +52,6 @@ public class MovieDetailActivity extends AppCompatActivity implements MoviesCont
     private MovieDetailAdapter mAdapter;
 
     private FloatingActionButton mFab;
-    private Menu mMenu;
 
     private ArrayList<Object> mPlotObject;
     private List<Trailer> mTrailers = new ArrayList<>();

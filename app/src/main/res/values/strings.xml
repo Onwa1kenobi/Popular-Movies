@@ -17,4 +17,5 @@
     <string name="movies_fragment_title">Movies</string>
     <string name="favourite_movies_fragment_title">Favourites</string>
     <string name="share">Share</string>
+    <string name="play_trailer_image">Play trailer image</string>
 </resources>

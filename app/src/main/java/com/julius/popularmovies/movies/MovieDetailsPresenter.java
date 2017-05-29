@@ -16,8 +16,7 @@ import retrofit2.Response;
 /**
  * Created by ameh on 22/05/2017.
  */
-
-public class MovieDetailsPresenter implements MoviesContract.MovieDetailsInterface {
+class MovieDetailsPresenter implements MoviesContract.MovieDetailsInterface {
 
     private final MoviesContract.MovieDetailsView movieDetailsView;
     private final MovieService movieService;

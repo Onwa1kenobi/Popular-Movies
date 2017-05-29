@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import com.julius.popularmovies.models.Movie;
 import com.julius.popularmovies.models.Review;
 import com.julius.popularmovies.models.Trailer;
-import com.julius.popularmovies.movies.data.MoviesDBHelper;
 
 import java.util.List;
 
@@ -48,7 +47,7 @@ class MoviesContract {
 
         void getTopRatedMovies(int page);
 
-        void getFavouriteMovies(MoviesDBHelper dbHelper, ContentResolver contentResolver);
+        void getFavouriteMovies(ContentResolver contentResolver);
 
         void getMovie(Movie movie, ImageView image);
     }

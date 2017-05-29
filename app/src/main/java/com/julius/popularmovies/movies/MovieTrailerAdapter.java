@@ -18,8 +18,7 @@ import java.util.List;
 /**
  * Created by ameh on 22/05/2017.
  */
-
-public class MovieTrailerAdapter extends RecyclerView.Adapter<MovieTrailerAdapter.ViewHolder> {
+class MovieTrailerAdapter extends RecyclerView.Adapter<MovieTrailerAdapter.ViewHolder> {
 
     private List<Trailer> mMovieTrailers;
 

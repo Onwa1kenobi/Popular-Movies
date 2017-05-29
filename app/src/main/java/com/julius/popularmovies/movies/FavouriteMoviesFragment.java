@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import com.julius.popularmovies.R;
 import com.julius.popularmovies.models.Movie;
-import com.julius.popularmovies.movies.data.MoviesDBHelper;
 import com.julius.popularmovies.utils.Constants;
 import com.julius.popularmovies.utils.ImageTransformTransition;
 
@@ -42,8 +41,6 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
     private ProgressBar mProgressBar;
     private TextView mErrorText;
 
-    private MoviesDBHelper mDBHelper;
-
     private boolean isLoading = false;
 
 
@@ -59,8 +56,6 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
         View view = inflater.inflate(R.layout.fragment_favourite_movies, container, false);
 
         mPresenter = new MoviesPresenter(this, MoviesInjector.provideMovieService(Constants.MOVIE_DB_API_URL));
-
-        mDBHelper = new MoviesDBHelper(getActivity());
 
         int mAdapterPosition = savedInstanceState != null
                 ? savedInstanceState.getInt(STATE_ADAPTER_POSITION, -1)
@@ -87,7 +82,7 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
         mSrl.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                mPresenter.getFavouriteMovies(mDBHelper, getContext().getContentResolver());
+                mPresenter.getFavouriteMovies(getContext().getContentResolver());
             }
         });
 
@@ -99,15 +94,15 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
             } else {
                 mSrl.setRefreshing(true);
             }
-            mPresenter.getFavouriteMovies(mDBHelper, getContext().getContentResolver());
+            mPresenter.getFavouriteMovies(getContext().getContentResolver());
         } else if (savedInstanceState != null && mAdapter.getItemCount() <= 0) {
             mProgressBar.setVisibility(View.VISIBLE);
-            mPresenter.getFavouriteMovies(mDBHelper, getContext().getContentResolver());
+            mPresenter.getFavouriteMovies(getContext().getContentResolver());
         }
 
         if (savedInstanceState == null) {
             mProgressBar.setVisibility(View.VISIBLE);
-            mPresenter.getFavouriteMovies(mDBHelper, getContext().getContentResolver());
+            mPresenter.getFavouriteMovies(getContext().getContentResolver());
         }
 
         setRetainInstance(true);
@@ -127,7 +122,7 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
     public void onResume() {
         super.onResume();
         resetLoadingElements();
-        mPresenter.getFavouriteMovies(mDBHelper, getContext().getContentResolver());
+        mPresenter.getFavouriteMovies(getContext().getContentResolver());
     }
 
     public void resetLoadingElements() {

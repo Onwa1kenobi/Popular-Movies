@@ -6,7 +6,6 @@ import android.widget.ImageView;
 
 import com.julius.popularmovies.models.Movie;
 import com.julius.popularmovies.movies.data.MovieListContract;
-import com.julius.popularmovies.movies.data.MoviesDBHelper;
 import com.julius.popularmovies.utils.Constants;
 
 import java.util.ArrayList;
@@ -76,7 +75,7 @@ class MoviesPresenter implements MoviesContract.MovieInterface {
     }
 
     @Override
-    public void getFavouriteMovies(MoviesDBHelper dbHelper, ContentResolver contentResolver) {
+    public void getFavouriteMovies(ContentResolver contentResolver) {
         Cursor cursor = null;
         ArrayList<Movie> movies = new ArrayList<>();
         try {
