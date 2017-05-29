@@ -25,7 +25,11 @@ public class Movie implements Parcelable {
     private String release_date;
     private Double vote_average;
 
-    private Movie(Parcel in) {
+    public Movie() {
+
+    }
+
+    public Movie(Parcel in) {
         id = in.readLong();
         poster_path = in.readString();
         backdrop_path = in.readString();
@@ -39,28 +43,56 @@ public class Movie implements Parcelable {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getBackdropPath() {
         return backdrop_path;
+    }
+
+    public void setBackdropPath(String backdropPath) {
+        this.backdrop_path = backdropPath;
     }
 
     public String getPosterPath() {
         return poster_path;
     }
 
+    public void setPosterPath(String posterPath) {
+        this.poster_path = posterPath;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getOverview() {
         return overview;
     }
 
+    public void setOverview(String overview) {
+        this.overview = overview;
+    }
+
     public String getReleaseDate() {
         return release_date;
     }
 
+    public void setReleaseDate(String releaseDate) {
+        this.release_date = releaseDate;
+    }
+
     public Double getVoteAverage() {
         return vote_average;
+    }
+
+    public void setVoteAverage(Double voteAverage) {
+        this.vote_average = voteAverage;
     }
 
     @Override
@@ -78,4 +110,5 @@ public class Movie implements Parcelable {
         dest.writeString(release_date);
         dest.writeDouble(vote_average);
     }
+
 }

@@ -11,4 +11,10 @@
     <string name="rating_total">/10</string>
     <string name="movie_poster_description">Movie Poster</string>
     <string name="error_text">Oh dear, an error occurred!\n Swipe down to retry.</string>
+    <string name="empty_favourites">You have no favourite movies yet.\n You can add one from the details screen.</string>
+    <string name="username">Onwa1kenobi</string>
+
+    <string name="movies_fragment_title">Movies</string>
+    <string name="favourite_movies_fragment_title">Favourites</string>
+    <string name="share">Share</string>
 </resources>

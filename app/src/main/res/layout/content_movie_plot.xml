@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/plot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_plot"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/plot_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plot"
+        android:layout_marginBottom="@dimen/text_margin"
+        android:layout_marginTop="@dimen/text_margin"
+        android:text="@string/placeholder_ipsum"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/description_text_size" />
+
+</RelativeLayout>

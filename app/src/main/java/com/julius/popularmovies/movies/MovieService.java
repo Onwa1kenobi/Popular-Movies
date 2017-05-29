@@ -4,6 +4,7 @@ import com.julius.popularmovies.utils.Constants;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -21,6 +22,13 @@ interface MovieService {
     Call<MoviesDBResponse> getTopRatedMovies(
             @Query(value = "api_key", encoded = true) String apiKey,
             @Query("page") int pageNumber
+    );
+
+    @GET(Constants.MOVIE_DB_API_URL + "movie/{movie_id}")
+    Call<MoviesDBResponse> getMovieDetails(
+            @Path("movie_id") int movieId,
+            @Query(value = "api_key", encoded = true) String apiKey,
+            @Query("append_to_response") String appendInfo
     );
 
 }

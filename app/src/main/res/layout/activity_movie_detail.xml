@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
@@ -18,8 +19,11 @@
             android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:collapsedTitleTextAppearance="@style/Toolbar.TitleText"
             app:contentScrim="@color/colorPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:title="@string/app_name"
+            app:titleEnabled="true">
 
             <ImageView
                 android:id="@+id/movie_image"
@@ -124,38 +128,55 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/activity_horizontal_margin">
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/favourite_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@drawable/ic_favorite_border"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_anchorGravity="bottom|end" />
 
-            <TextView
-                android:id="@+id/plot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_plot"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/title_text_size"
-                android:textStyle="bold" />
+    <!--<android.support.v4.widget.NestedScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-            <TextView
-                android:id="@+id/plot_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/plot"
-                android:layout_marginBottom="@dimen/text_margin"
-                android:layout_marginTop="@dimen/text_margin"
-                android:text="@string/placeholder_ipsum"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/description_text_size" />
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:padding="@dimen/activity_horizontal_margin">-->
 
-        </RelativeLayout>
+    <!--<TextView-->
+    <!--android:id="@+id/plot"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/title_plot"-->
+    <!--android:textColor="@color/colorAccent"-->
+    <!--android:textSize="@dimen/title_text_size"-->
+    <!--android:textStyle="bold" />-->
 
-    </android.support.v4.widget.NestedScrollView>
+    <!--<TextView-->
+    <!--android:id="@+id/plot_text"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/plot"-->
+    <!--android:layout_marginBottom="@dimen/text_margin"-->
+    <!--android:layout_marginTop="@dimen/text_margin"-->
+    <!--android:text="@string/placeholder_ipsum"-->
+    <!--android:textColor="@android:color/white"-->
+    <!--android:textSize="@dimen/description_text_size" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--</android.support.v4.widget.NestedScrollView>-->
 
 </android.support.design.widget.CoordinatorLayout>

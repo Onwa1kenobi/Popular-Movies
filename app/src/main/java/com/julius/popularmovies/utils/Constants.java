@@ -12,6 +12,8 @@ public class Constants {
     public static final String SORT_BY_POPULARITY = "movie/popular";
     public static final String SORT_BY_TOP_RATED = "movie/top_rated";
 
+    public static final String MOVIE_DETAILS_APPEND = "videos,reviews";
+
     public static final String MOVIE_POSTER_BASE_URL = "http://image.tmdb.org/t/p/w300/";
 
     public static final String MOVIE = "movie";
