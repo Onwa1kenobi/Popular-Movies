@@ -54,7 +54,7 @@
                     android:paddingLeft="@dimen/activity_horizontal_margin"
                     android:paddingRight="@dimen/activity_horizontal_margin"
                     android:paddingStart="@dimen/activity_horizontal_margin"
-                    android:visibility="visible">
+                    android:visibility="invisible">
 
                     <TextView
                         android:id="@+id/title_text"
@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/text_margin"
                         android:textColor="@android:color/white"
-                        android:textSize="20sp"
+                        android:textSize="@dimen/movie_title_text_size"
                         android:textStyle="bold" />
 
                     <TextView
@@ -81,7 +81,7 @@
                         android:paddingStart="@dimen/text_margin"
                         android:paddingTop="4dp"
                         android:textColor="@android:color/white"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/description_text_size"
                         android:textStyle="bold" />
 
                     <TextView
@@ -94,7 +94,7 @@
                         android:layout_toLeftOf="@+id/over_text"
                         android:layout_toStartOf="@+id/over_text"
                         android:textColor="@color/colorAccent"
-                        android:textSize="24sp"
+                        android:textSize="@dimen/movie_title_text_size"
                         android:textStyle="bold" />
 
                     <TextView

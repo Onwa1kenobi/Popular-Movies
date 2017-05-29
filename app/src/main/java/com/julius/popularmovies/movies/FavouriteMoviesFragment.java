@@ -55,7 +55,8 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_favourite_movies, container, false);
 
-        mPresenter = new MoviesPresenter(this, MoviesInjector.provideMovieService(Constants.MOVIE_DB_API_URL));
+        mPresenter = new MoviesPresenter(this,
+                MoviesInjector.provideMovieService(Constants.MOVIE_DB_API_URL));
 
         int mAdapterPosition = savedInstanceState != null
                 ? savedInstanceState.getInt(STATE_ADAPTER_POSITION, -1)
@@ -73,7 +74,9 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
 
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), getResources().getInteger(R.integer.movies_columns), GridLayoutManager.VERTICAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),
+                getResources().getInteger(R.integer.movies_columns),
+                GridLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(mAdapter);
         if (mAdapterPosition != -1) recyclerView.scrollToPosition(mAdapterPosition);
@@ -115,7 +118,8 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
         super.onSaveInstanceState(outState);
         outState.putParcelableArrayList(STATE_MOVIES, new ArrayList<>(mAdapter.getItems()));
         outState.putInt(STATE_ADAPTER_POSITION, mAdapter.getCurrentViewPosition());
-        outState.putBoolean(STATE_LOADING, mProgressBar.getVisibility() == View.VISIBLE || mSrl.isRefreshing());
+        outState.putBoolean(STATE_LOADING,
+                mProgressBar.getVisibility() == View.VISIBLE || mSrl.isRefreshing());
     }
 
     @Override
@@ -173,7 +177,8 @@ public class FavouriteMoviesFragment extends Fragment implements MoviesContract.
 
         Bundle bundle = new Bundle();
         bundle.putParcelable(Constants.MOVIE, movie);
-        bundle.putString(Constants.MOVIE_POSTER_PATH, Constants.MOVIE_POSTER_BASE_URL + movie.getPosterPath());
+        bundle.putString(Constants.MOVIE_POSTER_PATH,
+                Constants.MOVIE_POSTER_BASE_URL + movie.getPosterPath());
         bundle.putString(Constants.IMAGE_TRANSITION_NAME, ViewCompat.getTransitionName(imageView));
         intent.putExtra(Constants.MOVIE, bundle);
 

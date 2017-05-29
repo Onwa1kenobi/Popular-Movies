@@ -60,6 +60,18 @@ public class MovieDetailActivity extends AppCompatActivity implements MoviesCont
 
     private boolean movieIsFavourite = false, hideMenu = true;
 
+    public static String getNumberOrdinal(int i) {
+        String[] suffixes = new String[]{"th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th"};
+        switch (i % 100) {
+            case 11:
+            case 12:
+            case 13:
+                return i + "th";
+            default:
+                return i + suffixes[i % 10];
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,12 +102,14 @@ public class MovieDetailActivity extends AppCompatActivity implements MoviesCont
         mFab.hide();
 
         String rawDateString = movie.getReleaseDate();
-        String month = new DateFormatSymbols(Locale.getDefault()).getMonths()[Integer.parseInt(rawDateString.substring(5, 7)) - 1];
+        String month = new DateFormatSymbols(Locale.getDefault())
+                .getMonths()[Integer.parseInt(rawDateString.substring(5, 7)) - 1];
         String year = rawDateString.substring(0, 4);
 
         movieTitle = movie.getTitle();
         movieTitleText.setText(movie.getTitle());
-        movieReleaseDateText.setText(String.format(Locale.getDefault(), "%s, %s", month, year));
+        movieReleaseDateText.setText(String.format(Locale.getDefault(), "%s %s, %s",
+                getNumberOrdinal(Integer.parseInt(rawDateString.substring(8, 10))), month, year));
         movieRatingText.setText(String.valueOf(movie.getVoteAverage()));
 
         final ImageView movieImage = (ImageView) findViewById(R.id.movie_image);
@@ -111,7 +125,8 @@ public class MovieDetailActivity extends AppCompatActivity implements MoviesCont
             String imageTransitionName = extras.getString(Constants.IMAGE_TRANSITION_NAME);
             movieImage.setTransitionName(imageTransitionName);
 
-            getWindow().getSharedElementEnterTransition().addListener(new Transition.TransitionListener() {
+            getWindow().getSharedElementEnterTransition()
+                    .addListener(new Transition.TransitionListener() {
                 @Override
                 public void onTransitionStart(@NonNull Transition transition) {
 

@@ -3,11 +3,11 @@ package com.julius.popularmovies.movies;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.julius.popularmovies.R;
@@ -53,13 +53,13 @@ class MovieTrailerAdapter extends RecyclerView.Adapter<MovieTrailerAdapter.ViewH
 
         String key;
         TextView title;
-        CardView cardView;
+        ImageView trailerImage;
 
         ViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title_text);
-            cardView = (CardView) itemView.findViewById(R.id.background);
-            cardView.setOnClickListener(this);
+            trailerImage = (ImageView) itemView.findViewById(R.id.trailer_image);
+            trailerImage.setOnClickListener(this);
         }
 
         void bindView(int position) {
